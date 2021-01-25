@@ -3,7 +3,8 @@ Set of scripts & lambda functions to sync Zoom recordings to S3 and build an htt
 
 *Note: These scripts are provided as-is, and should not be considered production-ready. Among the deficiencies are limited documentation and missing tests.*
 
-To build and deploy these lambda functions, follow the instructions here:
+To build and deploy these lambda functions, follow the instructions on Amazon:
+
 https://docs.aws.amazon.com/lambda/latest/dg/python-package.html
 
 # `zoom_sync`
@@ -23,9 +24,9 @@ The script requires several environment variables:
 
 The app uses JWT to authenticate to Zoom. You must sign up for a developer account, create an app, and generate the token key and secret. It also relies on the "New Recordings" event subscription, and will need the verification token.
 
-Because the script can take time to run, it should be put behind an AWS Rest API Gateway. Follow instructions here:
+Because the script can take time to run, it should be put behind an AWS Rest API Gateway. Follow instructions on Amazon:
 
-[https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-integration-async.html]
+https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-integration-async.html
 
 Similarly, you'll want to forward the "Authorization" header through the API gateway so the lambda function has access.
 
